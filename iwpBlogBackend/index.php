@@ -95,7 +95,7 @@
         </div>
 
         <div class="post">
-          <img src="images/whiteGold.jpg" alt="" class="slider-image">
+          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
           <div class="post-info">
             <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
             <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
@@ -105,7 +105,7 @@
         </div>
 
         <div class="post">
-          <img src="images/whiteGold.jpg" alt="" class="slider-image">
+          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
           <div class="post-info">
             <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
             <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
@@ -297,7 +297,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
   <!-- Custom Script -->
-  <script src="js/scripts.js"></script> 
+  <script src="assets/js/script.js"></script> 
 
 </body>
 
