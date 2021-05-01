@@ -9,13 +9,35 @@ function dd($value){
 }
 
 //funtion to select all values of a table
-function selectAll($table){
+function selectAll($table, $condition = []){
     global $conn;
     $sql = "SELECT * FROM $table";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-    return $records;
+    if(empty($condition)){
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $users = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $records;
+    } else{
+        //return records with matching condition
+        $i = 0;
+        foreach ($condition as $key => $value){
+            if($i === 0){
+                $sql = $sql . " WHERE $key = $value";
+            } else{
+                $sql = $sql . " AND $key = $value";
+            }
+        }
+        dd($sql);
+
+    }
+    
 }
 
+$condition = [
+    'admin' => 1,
+    'username' => 'testUser1'
+];
 
+
+$users = selectAll('users',$condition);
+dd($users);
