@@ -124,11 +124,3 @@ function delete($table, $id)
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
 }
-
-$conditions = [
-    'admin' => 0,
-    'username' => 'testUser1'
-];
-
-$users = selectAll('user', $conditions);
-dd($users);
