@@ -28,6 +28,14 @@
           $_SESSION['admin'] = $user['admin'];
           $_SESSION['message'] = 'You are now logged in';
           $_SESSION['type'] = 'success';
+
+          if ($_SESSION['admin']) {
+            header('location:' . BASE_URL . '/admin/dashboard.php');
+          } else {
+            header('location:' . BASE_URL . '/index.php');
+          }
+          
+
           header('location: ' . BASE_URL . '/index.php');
           exit();
 
