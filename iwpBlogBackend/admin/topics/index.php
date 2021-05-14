@@ -1,5 +1,5 @@
 <?php include("../../path.php"); ?>
-
+<?php include("../../app/controllers/topics.php");?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,6 +50,8 @@
 
                     <h2 class="page-title">Manage Topics</h2>
 
+                    <?php include("../../app/includes/messages.php"); ?>
+
                     <table>
                         <thead>
                             <th>SN</th>
@@ -57,18 +59,14 @@
                             <th colspan="2">Action</th>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Poetry</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Life Lessons</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                            </tr>
+                            <?php foreach ($topics as $key => $topic): ?>
+                                <tr>
+                                    <td><?php echo $key + 1; ?></td>
+                                    <td><?php echo $topic['name']; ?></td>
+                                    <td><a href="edit.php?id=<?php echo $topic['id']; ?>" class="edit">edit</a></td>
+                                    <td><a href="#" class="delete">delete</a></td>
+                                </tr>
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
 
