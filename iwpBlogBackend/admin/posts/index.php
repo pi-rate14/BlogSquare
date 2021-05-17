@@ -1,4 +1,5 @@
 <?php include("../../path.php"); ?>
+<?php include("../../app/controllers/posts.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,6 +50,7 @@
                 <div class="content">
 
                     <h2 class="page-title">Manage Posts</h2>
+                    <?php include("../../app/includes/messages.php"); ?>
 
                     <table>
                         <thead>
@@ -58,22 +60,22 @@
                             <th colspan="3">Action</th>
                         </thead>
                         <tbody>
+                        <?php foreach ($posts as $key => $post): ?>
                             <tr>
-                                <td>1</td>
-                                <td>This is the first post</td>
+                                <td><?php echo $key+1 ?></td>
+                                <td><?php echo $post['title'] ?></td>
                                 <td>Awa</td>
                                 <td><a href="#" class="edit">edit</a></td>
                                 <td><a href="#" class="delete">delete</a></td>
-                                <td><a href="#" class="publish">publish</a></td>
+
+                                <?php if($post['published']): ?>
+                                    <td><a href="#" class="unpublish">unpublish</a></td>
+                                <?php else: ?>  
+                                    <td><a href="#" class="publish">publish</a></td>
+                                <?php endif; ?>
+
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>This is the second post</td>
-                                <td>Melvine</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                                <td><a href="#" class="publish">publish</a></td>
-                            </tr>
+                        <?php endforeach; ?>    
                         </tbody>
                     </table>
 

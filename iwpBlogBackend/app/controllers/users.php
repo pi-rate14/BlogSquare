@@ -10,7 +10,7 @@
   $email = '';
   $password = '';
   $passwordConf = '';
-  $table = 'users';
+  $table = 'user';
   $errors = array();
 
   function loginUser($user){
