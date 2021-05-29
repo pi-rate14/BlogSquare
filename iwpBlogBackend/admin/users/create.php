@@ -1,4 +1,5 @@
 <?php include("../../path.php"); ?>
+<?php include("../../app/controllers/users.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +51,10 @@
 
                     <h2 class="page-title">Add User</h2>
 
-                    <form action="create.html" method="post">
+                    <?php include("../../app/helpers/formErrors.php"); ?>
+
+
+                    <form action="create.php" method="post">
                         <div>
                             <label>Username</label>
                             <input type="text" name="username"
@@ -71,15 +75,15 @@
                                 class="text-input">
                         </div>
                         <div>
-                            <label>Role</label>
-                            <select name="role" class="text-input">
-                                <option value="Author">Author</option>
-                                <option value="Admin">Admin</option>
-                            </select>
+                            <label>
+                                <input type="checkbox" name="admin">
+                                Admin
+                            </label>
+                            
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-big">Add User</button>
+                            <button type="submit" name="create-admin" class="btn btn-big">Add User</button>
                         </div>
                     </form>
 
