@@ -3,8 +3,8 @@
   $_SESSION['id'] = 1;
   $_SESSION['username'] = 'testUser1';
 
-  include("../../app/database/db.php");
-  include( "../../app/helpers/validateUser.php");
+  include(ROOT_PATH . "/app/database/db.php");
+  include( ROOT_PATH . "/app/helpers/validateUser.php");
 
   $table = 'user';
   $admin_users = selectAll($table, ['admin' => 1]);
