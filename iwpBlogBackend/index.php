@@ -2,6 +2,10 @@
 <?php include("app/database/db.php"); ?>
 <?php include("app/controllers/topics.php");?>
 <?php error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE); ?>
+<?php 
+  $posts = selectAll('posts', ['published' => 1]);
+  
+  ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,56 +53,19 @@
 
       <div class="post-wrapper">
 
+      <?php foreach ($posts as $post): ?>
         <div class="post">
-          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image" >
+          <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="slider-image" >
           <div class="post-info">
-            <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
+            <h3><a href="single.html"><?php echo $post['title']; ?></a></h3>
             <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
             &nbsp;
-            <i class="far fa-calendar"> <span>Mar 8, 2019</span></i>
+            <i class="far fa-calendar"> <span><?php echo date('F j, Y', strtotime($post['created_at'])); ?></span></i>
           </div>
         </div>
+      <?php endforeach; ?>
 
-        <div class="post">
-          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
-          <div class="post-info">
-            <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
-            <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
-            &nbsp;
-            <i class="far fa-calendar"> <span>Mar 8, 2019</span></i>
-          </div>
-        </div>
-
-        <div class="post">
-          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
-          <div class="post-info">
-            <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
-            <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
-            &nbsp;
-            <i class="far fa-calendar"> <span>Mar 8, 2019</span></i>
-          </div>
-        </div>
-
-        <div class="post">
-          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
-          <div class="post-info">
-            <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
-            <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
-            &nbsp;
-            <i class="far fa-calendar"> <span>Mar 8, 2019</span></i>
-          </div>
-        </div>
-
-        <div class="post">
-          <img src="assets/images/whiteGold.jpg" alt="" class="slider-image">
-          <div class="post-info">
-            <h3><a href="single.html">One day your life will flash before your eyes</a></h3>
-            <i class="far fa-user"> <span>Apoorva Srivastava</span></i>
-            &nbsp;
-            <i class="far fa-calendar"> <span>Mar 8, 2019</span></i>
-          </div>
-        </div>
-
+        
 
       </div>
 
@@ -112,63 +79,21 @@
       <div class="main-content">
         <h1 class="recent-post-title">Recent Posts</h1>
 
-        <div class="post clearfix">
-          <img src="assets/images/whiteGold.jpg" alt="" class="post-image" usemap="#blogmap">
+        <?php foreach ($posts as $post): ?>
+          <div class="post clearfix">
+          <img src="<?php echo BASE_URL . '/assets/images/' . $post['image']; ?>" alt="" class="post-image" usemap="#blogmap">
           <div class="post-preview">
-            <h2><a href="single.php">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <h2><a href="single.php"><?php echo $post['title']; ?></a></h2>
             <i class="far fa-user"> Apoorva Srivastava</i>
             &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <i class="far fa-calendar"> <?php echo date('F j, Y', strtotime($post['created_at'])); ?></i>
             <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
+              <?php echo substr($post['body'], 0, 150) . '...' ?>
             </p>
             <a href="single.php" class="btn read-more">Read More</a>
           </div>
         </div>
-
-        <div class="post clearfix">
-          <img src="assets/images/whiteGold.jpg" alt="" class="post-image" usemap="#blogmap">
-          <div class="post-preview">
-            <h2><a href="single.php">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Apoorva Srivastava</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <img src="assets/images/whiteGold.jpg" alt="" class="post-image" usemap="#blogmap">
-          <div class="post-preview">
-            <h2><a href="single.php">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Apoorva Srivastava</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <img src="assets/images/whiteGold.jpg" alt="" class="post-image" usemap="#blogmap">
-          <div class="post-preview">
-            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Apoorva Srivastava</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
+        <?php endforeach; ?>
 
       </div>
 

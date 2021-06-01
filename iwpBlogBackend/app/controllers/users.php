@@ -5,6 +5,8 @@
 
   include(ROOT_PATH . "/app/database/db.php");
   include( ROOT_PATH . "/app/helpers/validateUser.php");
+  // include("app/database/db.php");
+  // include("app/helpers/validateUser.php");
 
   $table = 'user';
   $admin_users = selectAll($table, ['admin' => 1]);
@@ -79,7 +81,7 @@
           
             $_POST['admin'] = isset($_POST['admin']) ? 1 : 0;
             $count = update($table, $id,$_POST);
-            $_SESSION['message'] = "admin user created successfully";
+            $_SESSION['message'] = "admin user updated successfully";
             $_SESSION['type'] = "success";
             header('location:' . BASE_URL . '/admin/users/index.php');
             exit();

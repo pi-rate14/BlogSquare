@@ -52,7 +52,9 @@
 
                     <h2 class="page-title">Edit User</h2>
 
-                    <?php include("../../app/includes/messages.php"); ?>
+ 
+                    <?php include("../../app/helpers/formErrors.php"); ?>
+
 
 
                     <form action="edit.php" method="post">

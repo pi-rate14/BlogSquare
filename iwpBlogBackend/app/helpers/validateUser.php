@@ -24,9 +24,19 @@ function validateUser($user){
       if(($user['password'] !== $user['passwordConf'])){
         array_push($errors, 'Passwords do not match');
       }
+      // $existingUser = selectOne('user', ['email' => $user['email']]);
+      // if($existingUser){
+      //   array_push($errors, 'Email already exists');      
+      // }
+
       $existingUser = selectOne('user', ['email' => $user['email']]);
       if($existingUser){
-        array_push($errors, 'Email already exists');      
+        if(isset($user['update-user']) && $existingUser['id'] != $user['id']){
+          array_push($errors, 'User with email already exists');      
+        }
+        if(isset($user['create-admin'])){
+          array_push($errors, 'User with email already exists');      
+        }
       }
     return $errors;
 }

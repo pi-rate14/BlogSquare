@@ -64,7 +64,7 @@
                             <tr>
                                 <td><?php echo $key+1 ?></td>
                                 <td><?php echo $post['title'] ?></td>
-                                <td>Awa</td>
+                                <td>Apoorva</td>
                                 <td><a href="edit.php?id=<?php echo $post['id']; ?>" class="edit">edit</a></td>
                                 <td><a href="edit.php?delete_id=<?php echo $post['id']; ?>" class="delete">delete</a></td>
 

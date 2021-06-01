@@ -124,3 +124,8 @@ function delete($table, $id)
     $stmt = executeQuery($sql, ['id' => $id]);
     return $stmt->affected_rows;
 }
+
+// function get_posts_with_username(){
+//     global $conn;
+//     $sql = "SELEC"
+// }
