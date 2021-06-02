@@ -125,7 +125,33 @@ function delete($table, $id)
     return $stmt->affected_rows;
 }
 
+function getPublishedPosts(){
+    global $conn;
+    $sql = "SELECT p.*, u.username FROM posts AS p JOIN user AS u on p.user_id=u.id WHERE p.published=?";
+    $stmt = executeQuery($sql, ['published' => 1]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+function getPostsByTopicId($topic_id){
+    global $conn;
+    $sql = "SELECT p.*, u.username FROM posts AS p JOIN user AS u on p.user_id=u.id WHERE p.published=? AND topic_id=?";
+    $stmt = executeQuery($sql, ['published' => 1, 'topic_id' => $topic_id]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
+function searchPosts($term){
+    $match = '%' . $term . '%';
+    global $conn;
+    $sql = "SELECT p.*, u.username FROM posts AS p JOIN user AS u on p.user_id=u.id WHERE p.published=? AND p.title LIKE ? OR p.body LIKE ?";
+    $stmt = executeQuery($sql, ['published' => 1, 'title' => $match, 'body'=>$match]);
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
 // function get_posts_with_username(){
 //     global $conn;
 //     $sql = "SELEC"
 // }
+
