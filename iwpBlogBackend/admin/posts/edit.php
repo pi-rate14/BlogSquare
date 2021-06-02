@@ -1,5 +1,6 @@
 <?php include("../../path.php"); ?>
-<?php include("../../app/controllers/posts.php");?>
+<?php include("../../app/controllers/posts.php");
+ adminOnly();?>
 
 
 <!DOCTYPE html>

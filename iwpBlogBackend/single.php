@@ -73,7 +73,7 @@
           <?php foreach ($posts as $p): ?>
             <div class="post clearfix">
             <img src="<?php echo BASE_URL . '/assets/images/' . $p['image']; ?>" alt="">
-            <a href="" class="title">
+            <a href="single.php?id=<?php echo $p['id']; ?>" class="title">
               <h4><?php echo $p['title']; ?></h4>
             </a>
           </div>

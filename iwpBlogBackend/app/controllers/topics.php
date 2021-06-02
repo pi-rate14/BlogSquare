@@ -1,6 +1,7 @@
 <?php error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE); ?>
 <?php include("../../app/database/db.php"); ?>
 <?php include("../../app/helpers/validateTopic.php"); ?>
+<?php include("../../app/helpers/middleware.php");?>
 
 <?php
 
@@ -14,6 +15,7 @@ $errors = array();
 $topics = selectAll($table);
 
 if(isset($_POST['add-topic'])){
+    adminOnly();
     $errors = validateTopic($_POST);
 
     if(count($errors)===0){
@@ -39,6 +41,7 @@ if(isset($_GET['id'])){
 }
 
 if(isset($_GET['del_id'])){
+    adminOnly();
     $id = $_GET['del_id'];
     $count = delete($table, $id);
     $_SESSION['message'] = 'Topic successfully deleted';
@@ -48,6 +51,7 @@ if(isset($_GET['del_id'])){
 }
 
 if(isset($_POST['update-topic'])){
+    adminOnly();
     $errors = validateTopic($_POST);
     if(count($errors === 0)){
         $id = $_POST['id'];

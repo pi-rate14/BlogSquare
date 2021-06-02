@@ -11,10 +11,10 @@
           <span><i class="fas fa-envelope"></i> &nbsp; apoorvasrivastava.14@gmail.com</span>
         </div>
         <div class="socials">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.google.com/"><i class="fab fa-facebook"></i></a>
+          <a href="https://www.google.com/"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.google.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.google.com/"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
 
@@ -23,16 +23,7 @@
         <br>
         <ul>
           <a href="#">
-            <li>Events</li>
-          </a>
-          <a href="#">
             <li>Team</li>
-          </a>
-          <a href="#">
-            <li>Mentores</li>
-          </a>
-          <a href="#">
-            <li>Gallery</li>
           </a>
           <a href="#">
             <li>Terms and Conditions</li>
@@ -43,10 +34,10 @@
       <div class="footer-section contact-form">
         <h2>Contact us</h2>
         <br>
-        <form action="index.html" method="post">
-          <input type="email" name="email" class="text-input contact-input" placeholder="Your email address...">
-          <textarea rows="4" name="message" class="text-input contact-input" placeholder="Your message..."></textarea>
-          <button type="submit" class="btn btn-big contact-btn">
+        <form action="mail.php" method="post">
+          <input type="email" name="contactEmail" class="text-input contact-input" placeholder="Your email address...">
+          <textarea rows="4" name="contactMessage" class="text-input contact-input" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-big contact-btn" name="contact-submit">
             <i class="fas fa-envelope"></i>
             Send
           </button>
