@@ -24,11 +24,6 @@ function validateUser($user){
       if(($user['password'] !== $user['passwordConf'])){
         array_push($errors, 'Passwords do not match');
       }
-      // $existingUser = selectOne('user', ['email' => $user['email']]);
-      // if($existingUser){
-      //   array_push($errors, 'Email already exists');      
-      // }
-
       $existingUser = selectOne('user', ['email' => $user['email']]);
       if($existingUser){
         if(isset($user['update-user']) && $existingUser['id'] != $user['id']){

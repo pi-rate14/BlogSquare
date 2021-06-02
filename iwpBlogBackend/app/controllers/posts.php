@@ -80,7 +80,7 @@
             $title = $_POST['title'];
             $body = $_POST['body'];
             $topic_id = $_POST['topic_id'];
-            $ppublished = isset($_POST['published']) ? 1 : 0;
+            $published = isset($_POST['published']) ? 1 : 0;
         }
         
     }
