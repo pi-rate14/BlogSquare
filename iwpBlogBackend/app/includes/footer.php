@@ -22,7 +22,7 @@
         <h2>Quick Links</h2>
         <br>
         <ul>
-          <a href="#">
+          <a href="about.php">
             <li>Team</li>
           </a>
           <a href="#">
